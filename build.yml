@@ -1,0 +1,54 @@
+appId: "com.example.foo"
+productName: PRODUCT_NAME
+publish: null
+directories:
+  output: release
+  buildResources: "./assets"
+files:
+  - "./frontend/build/**/*"
+  - "./src/app.js"
+  - "./src/**/*"
+mac:
+  asar: true
+  icon: assets/icon.icns
+  category: public.app-category.developer-tools
+  hardenedRuntime: true
+dmg:
+  background: assets/dmg-background.tiff
+  icon: assets/icon.icns
+  iconSize: 110
+  contents:
+    - x: 150
+      y: 95
+    - x: 400
+      y: 95
+      type: link
+      path: /Applications
+  window:
+    width: 550
+    height: 200
+win:
+  icon: assets/icon.ico
+nsis:
+  oneClick: true
+  runAfterFinish: true
+  installerIcon: assets/icon.ico
+  uninstallerIcon: assets/icon.ico
+  deleteAppDataOnUninstall: true
+  license: LICENSE
+linux:
+  category: Network
+  executableName: EXECUTABLE_NAME
+  synopsis: DESCRIPTION HERE
+  icon: assets/iconset
+  target:
+    - AppImage
+    - snap
+    - tar.gz
+deb:
+  priority: optional
+  depends:
+    - 
+rpm:
+  depends:
+    -
