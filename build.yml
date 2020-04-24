@@ -1,17 +1,17 @@
-appId: "com.example.foo"
-productName: PRODUCT_NAME
+appId: "info.covid19mm.client"
+productName: "Covid19 MM"
 publish: null
 directories:
   output: release
   buildResources: "./assets"
 files:
-  - "./frontend/build/**/*"
+  - "./frontend/dist/**/*"
   - "./src/app.js"
   - "./src/**/*"
 mac:
   asar: true
   icon: assets/icon.icns
-  category: public.app-category.developer-tools
+  category: public.app-category.news
   hardenedRuntime: true
 dmg:
   background: assets/dmg-background.tiff
@@ -38,17 +38,10 @@ nsis:
   license: LICENSE
 linux:
   category: Network
-  executableName: EXECUTABLE_NAME
-  synopsis: DESCRIPTION HERE
+  executableName: covid19mm
+  synopsis: Coronavirus disease Situation Dashboard
   icon: assets/iconset
   target:
     - AppImage
     - snap
     - tar.gz
-deb:
-  priority: optional
-  depends:
-    - 
-rpm:
-  depends:
-    -
