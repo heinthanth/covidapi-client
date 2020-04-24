@@ -17,10 +17,11 @@ const create_main_window = () => {
 	let main_url =
 		process.env.ELECTRON_DEV_URL ||
 		url.format({
-			pathname: path.join(__dirname, "/frontend/dist/index.html"),
+			pathname: path.join(__dirname, "/../frontend/dist/index.html"),
 			protocol: "file:",
 			slashes: true,
 		});
+	console.log(main_url);
 	if(!main_url) {
 		console.log("canot find starting url. please build frontend or start frontend dev server");
 	}
