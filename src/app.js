@@ -1,7 +1,7 @@
 const electron = require("electron");
 const path = require("path");
 const url = require("url");
-const { app, BrowserWindow, Menu } = electron;
+const { app, BrowserWindow, Menu, shell } = electron;
 
 // initialize main window
 let main_window;
@@ -14,16 +14,28 @@ const create_main_window = () => {
 			nodeIntegration: true,
 		},
 	});
-	let main_url =
-		process.env.ELECTRON_DEV_URL ||
-		url.format({
+	let main_url;
+	// if no development, force app to use frontend/dist directory
+	if (process.env.NODE_ENV === "development") {
+		main_url =
+			process.env.ELECTRON_DEV_URL ||
+			url.format({
+				pathname: path.join(__dirname, "/../frontend/dist/index.html"),
+				protocol: "file:",
+				slashes: true,
+			});
+	} else {
+		main_url = url.format({
 			pathname: path.join(__dirname, "/../frontend/dist/index.html"),
 			protocol: "file:",
 			slashes: true,
 		});
-	console.log(main_url);
-	if(!main_url) {
-		console.log("canot find starting url. please build frontend or start frontend dev server");
+	}
+
+	if (!main_url) {
+		console.log(
+			"canot find starting url. please build frontend or start frontend dev server"
+		);
 	}
 	main_window.loadURL(main_url);
 };
@@ -44,28 +56,42 @@ app.on("activate", () => {
 	}
 });
 
-
-const isMac = process.platform === 'darwin';
+const isMac = process.platform === "darwin";
 const template = [
-  {
-    label: 'File',
-    submenu: [
-      isMac ? { role: 'close' } : { role: 'quit' }
-    ]
-  },
-  {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click: async () => {
-          const { shell } = require('electron')
-          await shell.openExternal('https://www.facebook.com/UITStudentsUnion/')
-        }
-      }
-    ]
-  }
-]
+	{
+		label: "File",
+		submenu: [isMac ? { role: "close" } : { role: "quit" }],
+	},
+	{
+		label: "Help",
+		submenu: [
+			{
+				label: "Learn More",
+				click: async () => {
+					await shell.openExternal(
+						"https://www.facebook.com/UITStudentsUnion/"
+					);
+				},
+			},
+		],
+	},
+];
 
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
+if (isMac) {
+	template.unshift({
+		label: "Covid19 MM",
+		submenu: [
+			{ type: "separator" },
+			{
+				label: "Quit Covid19 MM",
+				accelerator: "Command+Q",
+				click() {
+					app.quit();
+				},
+			},
+		],
+	});
+}
+
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);

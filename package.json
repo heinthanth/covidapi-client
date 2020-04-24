@@ -6,9 +6,13 @@
   "repository": "https://github.com/heinthanth/covidapi-client",
   "license": "MIT",
   "private": true,
+  "author": {
+    "name": "UIT Developers",
+    "url": "https://covid19mm.info"
+  },
   "scripts": {
     "start": "electron .",
-    "dev": "cross-env ELECTRON_DEV_URL=http://localhost:8080/#/ electron .",
+    "dev": "cross-env NODE_ENV=development ELECTRON_DEV_URL=http://localhost:8080/#/ electron .",
     "build": "electron-builder --config build.yml -c.extraMetadata.main=src/app.js"
   },
   "devDependencies": {
