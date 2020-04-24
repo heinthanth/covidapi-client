@@ -4,25 +4,29 @@ Desktop client for https://covid19mm.info
 
 ## Clone First
 
-If you're using `npm`, feel free to replace `yarn` with `npm run`
+If you're using `npm`, feel free to replace `yarn` with `npm run`.
+
+I suggest you to install both.
 
 ``` shell
 git clone --recursive https://github.com/heinthanth/covidapi-client
 cd covidapi-client
 git submodule init
 git submodule update
+cd frontend/
+git pull origin master
 ```
 
 ## Development
 
 ``` shell
 # install electron packge dependencies
-yarn # you can use npm. I prefer yarn due to my net speed
+yarn
 
 # install frontend dependencies
-cd frontend && yarn
+cd frontend && npm install
 # start vue dev server
-yarn serve # to start development
+npm run serve
 
 cd ../
 # start electron dev
@@ -33,10 +37,10 @@ yarn start
 
 ``` shell
 # build frontend
-cd frontend/ && yarn build
+cd frontend/ && npm run build
 cd ../
 # build electorn
-yarn build # to build application into executable
+yarn build
 ```
 
 ## Template Description
