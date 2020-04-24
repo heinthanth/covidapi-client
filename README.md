@@ -30,7 +30,7 @@ npm run serve
 
 cd ../
 # start electron dev
-yarn start
+yarn dev
 ```
 
 ## Building
