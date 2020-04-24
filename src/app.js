@@ -1,7 +1,7 @@
 const electron = require("electron");
 const path = require("path");
 const url = require("url");
-const { app, BrowserWindow } = electron;
+const { app, BrowserWindow, Menu } = electron;
 
 // initialize main window
 let main_window;
@@ -43,3 +43,29 @@ app.on("activate", () => {
 		create_main_window();
 	}
 });
+
+
+const isMac = process.platform === 'darwin';
+const template = [
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Learn More',
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://www.facebook.com/UITStudentsUnion/')
+        }
+      }
+    ]
+  }
+]
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
