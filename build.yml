@@ -34,6 +34,7 @@ win:
     - zip
 nsis:
   oneClick: true
+  perMachine: true
   runAfterFinish: true
   installerIcon: assets/icon.ico
   uninstallerIcon: assets/icon.ico
