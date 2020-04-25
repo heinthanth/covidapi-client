@@ -29,6 +29,9 @@ dmg:
     height: 200
 win:
   icon: assets/icon.ico
+  target:
+    - nsis
+    - zip
 nsis:
   oneClick: true
   runAfterFinish: true
