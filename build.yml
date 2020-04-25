@@ -35,7 +35,6 @@ nsis:
   installerIcon: assets/icon.ico
   uninstallerIcon: assets/icon.ico
   deleteAppDataOnUninstall: true
-  license: LICENSE
 linux:
   category: Network
   executableName: covid19mm
