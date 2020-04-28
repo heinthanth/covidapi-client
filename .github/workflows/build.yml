@@ -74,11 +74,6 @@ jobs:
         with:
           name: release
           path: ./release/covidapi-client-2.0.0.tar.gz
-      # - name: upload changelog
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: release
-      #     path: ./CHANGELOG.md
         
   windows:
     name: build on Windows
@@ -115,7 +110,7 @@ jobs:
 
   release:
     name: Release to Github
-    needs: [osx, linux]
+    needs: [osx, linux, windows]
     runs-on: ubuntu-latest
     steps:
       - name: Download
