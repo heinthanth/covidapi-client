@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.2
-      - name: list files
-        run: ls ./
+      - name: list frontend
+        run: ls ./frontend
       # - name: build frontend
       #   working-directory: ./frontend
       #   run: |
