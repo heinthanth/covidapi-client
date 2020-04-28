@@ -18,12 +18,11 @@ jobs:
           node-version: 12.16.2
       - name: list frontend
         run: ls ./frontend
-      # - name: build frontend
-      #   working-directory: ./frontend
-      #   run: |
-      #     npm install
-      #     npm run build
-      #     ls ./dist
+      - name: build frontend
+        working-directory: ./frontend
+        run: |
+          npm install
+          npm run build
       - name: build electron
         run: |
           yarn
