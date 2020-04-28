@@ -1,6 +1,6 @@
 {
   "name": "covidapi-client",
-  "version": "2.0",
+  "version": "2.0.0",
   "description": "Desktop client for https://covid19mm.info",
   "main": "src/app.js",
   "repository": "https://github.com/heinthanth/covidapi-client",

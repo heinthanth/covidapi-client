@@ -40,29 +40,29 @@ jobs:
       #     name: release
       #     path: ./release/-1.0.0-beta-mac.zip
 
-  linux:
-    name: build on Ubuntu
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          git submodule sync --recursive
-          git submodule update --recursive
-      - uses: actions/setup-node@master
-        with:
-          node-version: 12.16.1
-      - name: build frontend
-        working-directory: frontend
-        run: |
-          npm install
-          npm run build
-          ls ./dist
-      - name: build electron
-        run: |
-          yarn
-          yarn build
-      - name: list release
-        run: ls ./release
+  # linux:
+  #   name: build on Ubuntu
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - run: |
+  #         git submodule sync --recursive
+  #         git submodule update --recursive
+  #     - uses: actions/setup-node@master
+  #       with:
+  #         node-version: 12.16.1
+  #     - name: build frontend
+  #       working-directory: frontend
+  #       run: |
+  #         npm install
+  #         npm run build
+  #         ls ./dist
+  #     - name: build electron
+  #       run: |
+  #         yarn
+  #         yarn build
+  #     - name: list release
+  #       run: ls ./release
       # - name: upload AppImage
       #   uses: actions/upload-artifact@v1
       #   with:
