@@ -16,9 +16,9 @@ jobs:
           git submodule update --recursive
       - uses: actions/setup-node@master
         with:
-          node-version: 12.16.1
+          node-version: 12.16.2
       - name: build frontend
-        working-directory: frontend
+        working-directory: ./frontend
         run: |
           npm install
           npm run build
