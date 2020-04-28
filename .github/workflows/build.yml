@@ -16,10 +16,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.2
-      - name: list frontend
-        run: ls ./frontend
       - name: build frontend
-        working-directory: ./frontend
+        working-directory: frontend
         run: |
           npm install
           npm run build
@@ -50,10 +48,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.2
-      - name: list frontend
-        run: ls ./frontend
       - name: build frontend
-        working-directory: ./frontend
+        working-directory: frontend
         run: |
           npm install
           npm run build
@@ -84,6 +80,29 @@ jobs:
       #     name: release
       #     path: ./CHANGELOG.md
         
+  windows:
+    name: build on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12.16.2
+      - name: build frontend
+        working-directory: frontend
+        run: |
+          npm install
+          npm run build
+      - name: build electron
+        run: |
+          yarn
+          yarn build
+      - name: list
+        run: ls ./release 
+        shell: pwsh
+
   # release:
   #   name: Release to Github
   #   needs: [osx, linux]
