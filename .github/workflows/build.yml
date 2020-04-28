@@ -17,12 +17,14 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.2
-      - name: build frontend
-        working-directory: ./frontend
-        run: |
-          npm install
-          npm run build
-          ls ./dist
+      - name: list files
+        run: ls ./
+      # - name: build frontend
+      #   working-directory: ./frontend
+      #   run: |
+      #     npm install
+      #     npm run build
+      #     ls ./dist
       - name: build electron
         run: |
           yarn
