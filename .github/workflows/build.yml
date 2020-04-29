@@ -31,12 +31,12 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/Covid19 MM-2.0.0.dmg
+          path: ./release/COVID19 MM-2.0.0.dmg
       - name: upload zip
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/Covid19 MM-2.0.0-mac.zip
+          path: ./release/COVID19 MM-2.0.0-mac.zip
 
   linux:
     name: build on Ubuntu
@@ -63,17 +63,17 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/Covid19 MM-2.0.0.AppImage
+          path: ./release/COVID19 MM-2.0.0.AppImage
       - name: upload snap
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/covidapi-client_2.0.0_amd64.snap
+          path: ./release/covid19mm_2.0.0_amd64.snap
       - name: upload tarball
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/covidapi-client-2.0.0.tar.gz
+          path: ./release/covid19mm-2.0.0.tar.gz
         
   windows:
     name: build on Windows
@@ -101,12 +101,12 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/Covid19 MM Setup 2.0.0.exe
+          path: ./release/COVID19 MM Setup 2.0.0.exe
       - name: upload zip
         uses: actions/upload-artifact@v1
         with:
           name: release
-          path: ./release/Covid19 MM-2.0.0-win.zip
+          path: ./release/COVID19 MM-2.0.0-win.zip
 
   release:
     name: Release to Github
@@ -122,12 +122,12 @@ jobs:
         with:
           draft: true
           files: |
-            ./release/Covid19 MM Setup 2.0.0.exe
-            ./release/Covid19 MM-2.0.0-win.zip
-            ./release/Covid19 MM-2.0.0.AppImage
-            ./release/covidapi-client_2.0.0_amd64.snap
-            ./release/covidapi-client-2.0.0.tar.gz
-            ./release/Covid19 MM-2.0.0.dmg
-            ./release/Covid19 MM-2.0.0-mac.zip
+            ./release/COVID19 MM Setup 2.0.0.exe
+            ./release/COVID19 MM-2.0.0-win.zip
+            ./release/COVID19 MM-2.0.0.AppImage
+            ./release/covid19mm_2.0.0_amd64.snap
+            ./release/covid19mm-2.0.0.tar.gz
+            ./release/COVID19 MM-2.0.0.dmg
+            ./release/COVID19 MM-2.0.0-mac.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

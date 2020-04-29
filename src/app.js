@@ -65,6 +65,8 @@ const template = [
 	{
 		label: "Help",
 		submenu: [
+			{ role: "reload" },
+			{ role: "toggleDevTools" },
 			{
 				label: "Learn More",
 				click: async () => {
@@ -79,7 +81,7 @@ const template = [
 
 if (isMac) {
 	template.unshift({
-		label: "Covid19 MM",
+		label: "COVID19 MM",
 		submenu: [
 			{ type: "separator" },
 			{

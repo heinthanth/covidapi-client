@@ -1,5 +1,5 @@
 appId: "info.covid19mm.client"
-productName: "Covid19 MM"
+productName: "COVID19 MM"
 publish: null
 directories:
   output: release
